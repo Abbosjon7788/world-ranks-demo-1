@@ -26,7 +26,11 @@ const SortArrow = ({ direction }) => {
 }
 
 export const numberWithCommas = (x) => {
-     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+     if (x === 0 || x === null) {
+          return '';
+     } else {
+          return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+     }
 }
 
 const CountriesTable = ({ country }) => {
