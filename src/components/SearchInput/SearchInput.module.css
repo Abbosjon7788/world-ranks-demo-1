@@ -1,0 +1,18 @@
+.iconSearch {
+     mask-image: url("/public/icons/search.svg");
+     mask-size: 100%;
+     mask-repeat: no-repeat;
+
+     -webkit-mask-image: url("/public/icons/search.svg");
+     -webkit-mask-size: 100%;
+     -webkit-mask-repeat: no-repeat;
+
+     height: 18px;
+     width: 18px;
+     /* background-color: #b3c5cd; */
+     background-color: black;
+}
+
+.input::placeholder {
+     color: #b3c5cd;
+}
