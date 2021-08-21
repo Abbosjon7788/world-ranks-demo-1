@@ -19,8 +19,6 @@ const CountryInfo = ({ country }) => {
           getBorders()
      }, []);
 
-     console.log(borders);
-
      return (
           <div className="flex md:flex-nowrap flex-wrap md:mt-12 mt-8 text-main">
                <div className="md:w-1/3 w-full lg:px-6 md:px-4 px-0">
@@ -30,11 +28,11 @@ const CountryInfo = ({ country }) => {
                          <h2 className="text-sm xl:mt-2 lg:mt-1 md:mt-2 text-center">{country.region}</h2>
                          <div className="flex lg:flex-nowrap flex-wrap md:justify-between justify-around xl:my-4 lg:my-2 md:my-2">
                               <div className="xl:w-1/3 lg:w-1/2 md:w-full lg:mb-0 md:mb-3 text-center">
-                                   <p className="xl:text-lg xl:tracking-wider lg:tracking-tight font-semibold md:tracking-widest mb-0 leading-6">{numberWithCommas(country.population)}</p>
+                                   <p className="xl:text-lg xl:tracking-wider lg:tracking-tight font-semibold md:tracking-widest mb-0 leading-6">{numberWithCommas(country.population || '0')}</p>
                                    <span className="block xl:text-sm lg:text-xs text-sm text-color-secendary">Population</span>
                               </div>
                               <div className="xl:w-1/3 lg:w-1/2 md:w-full text-center">
-                                   <p className="xl:text-lg mb-0 leading-6 font-semibold md:tracking-widest lg:tracking-tight xl:tracking-wider">{numberWithCommas(country.area)}</p>
+                                   <p className="xl:text-lg mb-0 leading-6 font-semibold md:tracking-widest lg:tracking-tight xl:tracking-wider">{numberWithCommas(country.area || '0')}</p>
                                    <span className="block xl:text-sm lg:text-xs text-sm text-color-secendary">Area (km<sup>2</sup>)</span>
                               </div>
 
@@ -84,16 +82,16 @@ const CountryInfo = ({ country }) => {
                          </div>
                          <div className="pt-6 pb-4 px-2">
                               <h1 className="text-color-secendary px-4 mb-0 pb-6">Neighbouring Countries</h1>
-                              <div className="flex md:justify-around justify-between flex-wrap">
+                              <div className="flex flex-wrap">
                                    {
-                                        borders.map((country) => (
+                                        borders.length > 0 ? borders.map((country) => (
                                              <div key={country.name}>
                                                   <div className="flex flex-wrap lg:w-28 md:w-24 w-28 justify-center mb-2">
                                                        <Image src={country.flag} width={70} height={50} className="rounded-md border overflow-hidden" alt="" />
                                                        <h1 className="text-center w-full text-color-secendary mt-2 text-xs">{country.name}</h1>
                                                   </div>
                                              </div>
-                                        ))
+                                        )) : (<h1 className="text-color-secendary text-center w-full text-sm">No neighbouring countries</h1>)
                                    }
                               </div>
 

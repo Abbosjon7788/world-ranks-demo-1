@@ -91,8 +91,8 @@ const CountriesTable = ({ country }) => {
 
                                         <span className="pl-2 md:w-2/3 text-left w-full">{element.name}</span>
                                    </div>
-                                   <div className="md:w-1/3 text-center w-1/2">{numberWithCommas(element.population)}</div>
-                                   <div className="md:block hidden w-1/3">{numberWithCommas(element.area || 0)}</div>
+                                   <div className="md:w-1/3 text-center w-1/2">{numberWithCommas(element.population || '0')}</div>
+                                   <div className="md:block hidden w-1/3">{numberWithCommas(element.area || '0')}</div>
                                    <div className="md:block hidden w-1/3">
                                         <div className="w-3/5 mx-auto flex items-center">
                                              <div className="relative w-9/12">
