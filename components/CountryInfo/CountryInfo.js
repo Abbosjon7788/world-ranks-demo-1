@@ -82,7 +82,7 @@ const CountryInfo = ({ country }) => {
                          </div>
                          <div className="pt-6 pb-4 px-2">
                               <h1 className="text-color-secendary px-4 mb-0 pb-6">Neighbouring Countries</h1>
-                              <div className="flex flex-wrap">
+                              <div className="flex md:justify-start justify-between flex-wrap">
                                    {
                                         borders.length > 0 ? borders.map((country) => (
                                              <div key={country.name}>
